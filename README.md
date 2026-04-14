@@ -1,10 +1,14 @@
-# Phosphor
+<div align="center">
+  <img src="docs/phosphor-logo.png" alt="Phosphor" width="500"/>
 
-A modern macOS BBS terminal client. Built with Tauri v2 and Rust. Designed for
-people who still want to dial into bulletin board systems but would rather not
-fight with SyncTERM in a Wine bottle.
+  **A modern macOS BBS terminal client.**
 
-![Phosphor screenshot](docs/screenshot.png)
+  Built with Tauri v2 and Rust. Designed for people who still want to dial into
+  bulletin board systems but would rather not fight with SyncTERM in a Wine
+  bottle.
+</div>
+
+---
 
 ## What it is
 
@@ -14,16 +18,21 @@ negotiation, supports both UTF-8 and Big5 encoding, and renders ANSI art with
 the kind of CRT phosphor glow that hasn't been popular since 1994.
 
 It comes with a curated phonebook of active BBSes — Black Flag, Level 29,
-Vertrauen, PTT, and a handful of others — plus the ability to add your own.
+Vertrauen, PTT, Al's Geek Lab, and a handful of others — plus the ability to
+add your own.
+
+![Phosphor connected to Al's Geek Lab](docs/screenshot-connected.png)
 
 ## Features
 
-- **Telnet & SSH** — both protocols, real negotiation
+- **Telnet & SSH** — both protocols, real telnet negotiation
 - **Encoding** — UTF-8 and Big5 (PTT works in full Chinese)
 - **Phonebook** — curated default list + your own custom entries (persisted)
 - **Favorites** — star the BBSes you actually use
 - **CRT aesthetic** — phosphor green palette, scanlines, vignette, subtle glow
 - **Hardware-readout status bar** — protocol, encoding, host, live uptime
+
+![Phosphor phonebook with Phosphor BBS connected](docs/screenshot-phonebook.png)
 
 ## Install
 
@@ -32,9 +41,13 @@ Vertrauen, PTT, and a handful of others — plus the ability to add your own.
 Grab the latest `.dmg` from the
 [releases page](https://github.com/dragontpe/phosphor/releases).
 
-Drag `Phosphor.app` to `/Applications`. macOS will warn that the app is from an
-unidentified developer (it is — I haven't paid Apple $99 for a Developer ID).
-Right-click the app → Open → Open. macOS will remember that choice.
+Open the DMG and drag `Phosphor.app` to `/Applications`. macOS will warn that
+the app is from an unidentified developer (it is — I haven't paid Apple $99
+for a Developer ID). Right-click the app → **Open** → **Open**. macOS
+remembers that choice on subsequent launches.
+
+The DMG is a **universal binary** — works on both Apple Silicon and Intel
+Macs.
 
 ### Build from source
 
