@@ -1,0 +1,25 @@
+[package]
+name = "phosphor"
+version = "0.1.0"
+description = "Modern BBS terminal client"
+authors = ["Frank de Kock"]
+edition = "2021"
+
+[lib]
+name = "phosphor_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+encoding_rs = "0.8"
+russh = "0.46"
+russh-keys = "0.46"
+async-trait = "0.1"
+tauri-plugin-fs = "2"
+log = "0.4"
