@@ -4,6 +4,10 @@ interface TitleBarProps {
   connectionState: ConnectionState;
   activeBbs: BbsEntry | null;
   onDisconnect: () => void;
+  smoothScroll: boolean;
+  onToggleSmoothScroll: () => void;
+  capturing: boolean;
+  onToggleCapture: () => void;
 }
 
 function ledClass(state: ConnectionState): string {
@@ -38,7 +42,13 @@ export function TitleBar({
   connectionState,
   activeBbs,
   onDisconnect,
+  smoothScroll,
+  onToggleSmoothScroll,
+  capturing,
+  onToggleCapture,
 }: TitleBarProps) {
+  const canCapture = connectionState === "connected";
+
   return (
     <div className="title-bar">
       <div className="title-bar__brand">
@@ -55,6 +65,33 @@ export function TitleBar({
       <span className="title-bar__tag">BBS Terminal</span>
 
       <div className="title-bar__indicators">
+        <button
+          className={`title-bar__btn title-bar__btn--toggle${
+            smoothScroll ? " is-on" : ""
+          }`}
+          onClick={onToggleSmoothScroll}
+          aria-pressed={smoothScroll}
+          title="Smooth scroll when paging through scrollback"
+        >
+          SMOOTH
+        </button>
+
+        <button
+          className={`title-bar__btn title-bar__btn--toggle${
+            capturing ? " is-rec" : ""
+          }`}
+          onClick={onToggleCapture}
+          disabled={!canCapture && !capturing}
+          aria-pressed={capturing}
+          title={
+            capturing
+              ? "Stop capture and save session to .ans file"
+              : "Record incoming session bytes to a .ans file"
+          }
+        >
+          {capturing ? "● REC" : "○ REC"}
+        </button>
+
         {activeBbs && connectionState === "connected" && (
           <span className="title-bar__tag" title={`${activeBbs.host}:${activeBbs.port}`}>
             {activeBbs.name}

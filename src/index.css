@@ -263,6 +263,56 @@ select {
   outline-offset: 2px;
 }
 
+.title-bar__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.title-bar__btn:disabled:hover {
+  background: var(--bg);
+  color: var(--phosphor);
+  border-color: var(--phosphor-dim);
+  box-shadow: none;
+}
+
+.title-bar__btn--toggle {
+  padding: 6px 10px;
+  font-size: var(--text-xs);
+  color: var(--phosphor-dim);
+  border-color: var(--border-bright);
+}
+
+.title-bar__btn--toggle.is-on {
+  background: var(--phosphor-faint);
+  color: var(--phosphor-bright);
+  border-color: var(--phosphor);
+  box-shadow: 0 0 8px var(--phosphor-glow) inset;
+}
+
+.title-bar__btn--toggle.is-rec {
+  background: #2a0a0a;
+  color: #ff6666;
+  border-color: #ff4d4d;
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.35) inset;
+  animation: rec-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes rec-pulse {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(255, 77, 77, 0.3) inset;
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 77, 77, 0.6) inset;
+  }
+}
+
+.title-bar__btn--toggle.is-rec:hover {
+  background: #ff4d4d;
+  color: #fff;
+  border-color: #ff4d4d;
+  box-shadow: 0 0 12px rgba(255, 77, 77, 0.5);
+}
+
 /* ─────────────────────────────────────────────────
    MAIN AREA
    ───────────────────────────────────────────────── */
